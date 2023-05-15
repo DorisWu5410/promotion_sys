@@ -2,8 +2,6 @@ package com.example.promotion.promo.service;
 
 import java.util.List;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 
 import com.example.promotion.promo.entity.PromoProduct;
 
@@ -16,9 +14,6 @@ public interface PromoProductService {
     int insertBatch(List<PromoProduct> promoProducts);
 
     PromoProduct queryById(Long id);
-
-    // query by page
-    Page<PromoProduct> queryByPage(PromoProduct promoProduct, PageRequest pageRequest);
 
     // add product
     PromoProduct insert(PromoProduct promoProduct);

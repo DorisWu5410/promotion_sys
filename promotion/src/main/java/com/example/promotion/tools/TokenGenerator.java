@@ -7,6 +7,8 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 import java.util.*;
 
+import org.springframework.stereotype.Component;
+
 @Component
 public class TokenGenerator {
     Algorithm algorithm = Algorithm.HMAC256("doriswu");

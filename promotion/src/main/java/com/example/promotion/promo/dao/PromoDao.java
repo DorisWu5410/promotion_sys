@@ -1,33 +1,14 @@
 package com.example.promotion.promo.dao;
 
-public class PromoDao {
-    public Promo queryById(Long id){
-        
-    };
+import com.example.promotion.AbstractHibernateDao;
+import com.example.promotion.enums.PromoStatusEnum;
+import com.example.promotion.promo.entity.Promo;
 
+public class PromoDao extends AbstractHibernateDao<Promo>{
 
-
-    /**
-     * add promotion
-     *
-     * @param Promo object
-     * @return Promo object
-     */
-    Promo insert(Promo promo);
-
-    /**
-     * update
-     *
-     * @param Promo object
-     * @return Promo object
-     */
-    Promo update(Promo hPromo);
-
-    /**
-     * delete by id
-     *
-     * @param id pk
-     * @return success or not
-     */
-    boolean deleteById(Long id);
+    public boolean deleteById(Long id){
+        boolean result = super.deleteById(id, PromoStatusEnum.OFFLINE.getCode());
+        return result;
+    }
+    
 }
