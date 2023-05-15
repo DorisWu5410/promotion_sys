@@ -4,10 +4,11 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.function.Function;
 
+import com.example.promotion.EntityClass;
 import com.example.promotion.convert.Converter;
 import com.example.promotion.order.model.OrderModel;
 
-public class Order implements Serializable, Converter<Order, OrderModel>{
+public class Order extends EntityClass implements Serializable, Converter<Order, OrderModel>{
     private static final long serialVersionUID = 592246614849137714L;
 
     public OrderModel convert(Function<Order, OrderModel> f){

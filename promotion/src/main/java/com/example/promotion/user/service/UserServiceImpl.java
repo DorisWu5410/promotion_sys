@@ -1,6 +1,7 @@
 package com.example.promotion.user.service;
 
 import com.example.promotion.user.dao.UserDao;
+import com.example.promotion.user.entity.User;
 import com.example.promotion.user.model.LoginRequest;
 import com.example.promotion.user.model.LoginResponse;
 import com.example.promotion.user.model.RegisterRequest;
@@ -36,7 +37,11 @@ public class UserServiceImpl implements UserService{
             return resp;
         }
 
-        resp = userDao.register(req);
+
+
+        User newUser = new User();
+        newUser.setEmail(req.getEmail());
+        newUser.setEmail(req.getEmail());
         return resp;
     }
 }

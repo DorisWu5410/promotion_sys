@@ -1,13 +1,19 @@
 package com.example.promotion.user.entity;
-import jakarta.persistence.*;
 
+import com.example.promotion.EntityClass;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 @Entity
 @Table(name = "user")
-public class User {
-    @Id 
+public class User{
+    @Id
+    @GenerateValue
+    private Long id;
     private String email;
-    @Column
+
     private String password;
+    
 
     public String getEmail() {
         return this.email;
@@ -24,5 +30,9 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
+
 }
+
+ 
+

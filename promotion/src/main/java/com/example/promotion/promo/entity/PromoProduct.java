@@ -3,12 +3,24 @@ package com.example.promotion.promo.entity;
 import java.io.Serializable;
 import java.util.*;
 
-public class PromoProduct implements Serializable{
+import com.example.promotion.EntityClass;
+
+import jakarta.persistence.Entity;
+
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "promo_product")
+public class PromoProduct extends EntityClass implements Serializable{
     private static final long serialVersionUID = -72847303198394301L;
     // id
+    @Id
     private Long id;
 
     // promo id
+    @ManyToOne
     private Long promoId;
 
     // promo name
@@ -103,8 +115,4 @@ public class PromoProduct implements Serializable{
 
     // update
     private Date updateTime;
-
-
-
-
 }

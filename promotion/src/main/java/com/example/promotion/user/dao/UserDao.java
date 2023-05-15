@@ -10,51 +10,15 @@ import com.example.promotion.user.model.LoginRequest;
 import com.example.promotion.user.model.LoginResponse;
 import com.example.promotion.user.model.RegisterRequest;
 import com.example.promotion.user.model.RegisterResponse;
+import com.example.promotion.AbstractHibernateDao;
 import com.example.promotion.tools.TokenGenerator;
 
 @Component
-public class UserDao {
-
-    @Autowired
-    private static SessionFactory factory;
+public class UserDao extends AbstractHibernateDao<User>{
 
     @Autowired
     private static TokenGenerator tokenGenerator;
 
-    public RegisterResponse register(RegisterRequest req){
-
-        RegisterResponse resp = new RegisterResponse();
-
-        if(!req.validate()){
-            resp.setStatus(false);
-            resp.setMsg("null value in requied field");
-            return resp;
-        }
-
-        Session session = factory.openSession();
-        Transaction tx = null;
-
-        try{
-            tx = session.beginTransaction();
-            User user = new User();
-            user.setEmail(req.getEmail());
-            user.setPassword(req.getPassword());
-            session.persist(user);
-            resp.setStatus(true);
-            resp.setMsg("success");
-        }
-        catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-            resp.setStatus(false);
-            resp.setMsg(e.getMessage()); 
-         } finally {
-            session.close();
-         }
-        return resp;
-    }
 
 
     public LoginResponse login(LoginRequest req){

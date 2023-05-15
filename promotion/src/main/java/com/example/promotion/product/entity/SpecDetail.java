@@ -3,37 +3,44 @@ package com.example.promotion.product.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-public class SpecDetail implements Serializable {
-    private static final long serialVersionUID = 148396565009656432L;
-    /**
-     * id
-     */
-    private Long id;
-    /**
-     * 规格
-     */
-    private Long specId;
-    /**
-     * 规格属性名称
-     */
-    private String specKey;
-    /**
-     * 规格属性值
-     */
-    private String specValue;
-    /**
-     * 类目状态0-废弃，1-正常
-     */
-    private Integer status;
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
+import com.example.promotion.EntityClass;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "spec_detail")
+public class SpecDetail extends EntityClass implements Serializable {
+    private static final long serialVersionUID = 148396565009656432L;
+    
+    @Id 
+    private Long id;
+
+    @Column
+    private Long specId;
+
+    /**
+     * specification name
+     */
+    @Column
+    private String specKey;
+
+    @Column
+    private String specValue;
+
+    /**
+     * specification status 0-expired，1-normal
+     */
+    @Column
+    private Integer status;
+
+    @Column
+    private Date createTime;
+
+    @Column
+    private Date updateTime;
 
     public Long getId() {
         return id;

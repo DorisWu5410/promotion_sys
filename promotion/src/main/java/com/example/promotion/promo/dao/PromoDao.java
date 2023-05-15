@@ -1,13 +1,9 @@
-package com.example.promotion.promo.service;
+package com.example.promotion.promo.dao;
 
-import com.example.promotion.promo.entity.Promo;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-
-public interface PromoQueryService {
-
-    // query promotion through id
-    Promo queryById(Long id);
+public class PromoDao {
+    public Promo queryById(Long id){
+        
+    };
 
 
 

@@ -3,33 +3,51 @@ package com.example.promotion.product.entity;
 import java.io.Serializable;
 import java.util.*;
 
-public class Sku implements Serializable{
+import com.example.promotion.EntityClass;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "sku")
+public class Sku extends EntityClass implements Serializable{
     private static final long serialVersionUID = -80891613527625211L;
     // id
+    @Id
     private Long id;
 
     // spu id
+    @Column
     private Long spuId;
 
     //store id
+    @Column
     private Long storeId;
 
     // specification id
+    @Column
     private Long specDetailId;
 
     // stock
+    @Column
     private Integer stock;
 
     // original price
+    @Column
     private Integer price;
 
     // product status 0-invalid, 1-valid
+    @Column
     private Integer status;
 
     // create time
+    @Column
     private Date createTime;
 
     // update time
+    @Column
     private Date updateTime;
 
     

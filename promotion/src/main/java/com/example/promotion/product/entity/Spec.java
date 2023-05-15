@@ -1,24 +1,40 @@
 package com.example.promotion.product.entity;
 import java.util.*;
+
+import com.example.promotion.EntityClass;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.io.Serializable;
 
-public class Spec implements Serializable {
+@Entity
+@Table(name = "spec")
+public class Spec extends EntityClass implements Serializable {
     private static final long serialVersionUID = -66475501811467207L;
     
     // id
+    @Id 
     private Long id;
 
     // category id, pk of category
+    @Column
     private Long categoryId;
    
     // specification name
+    @Column
     private String specKey;
     
     // 0-invalid 1-valid
+    @Column
     private Integer status;
     
+    @Column
     private Date createTime;
 
+    @Column
     private Date updateTime;
 
 
