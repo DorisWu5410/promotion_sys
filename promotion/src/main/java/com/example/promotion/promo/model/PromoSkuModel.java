@@ -54,7 +54,7 @@ public class PromoSkuModel implements Serializable, MultiConverter<PromoProduct,
     /**
      * 规格信息
      */
-    private String specDetailIds;
+    private Long specDetailId;
     /**
      * 价格,销售价
      */

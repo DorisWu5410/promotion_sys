@@ -13,6 +13,8 @@ public interface PromoProductService {
 
     int insertBatch(List<PromoProduct> promoProducts);
 
+    int insertOrUpdateBatch(List<PromoProduct> promoProducts);
+
     PromoProduct queryById(Long id);
 
     // add product

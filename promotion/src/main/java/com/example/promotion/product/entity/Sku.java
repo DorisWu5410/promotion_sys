@@ -24,7 +24,7 @@ public class Sku extends EntityClass implements Serializable{
 
     //store id
     @Column
-    private Long storeId;
+    private Long shopId;
 
     // specification id
     @Column
@@ -67,12 +67,12 @@ public class Sku extends EntityClass implements Serializable{
         this.spuId = spuId;
     }
 
-    public Long getStoreId() {
-        return this.storeId;
+    public Long getShopId() {
+        return this.shopId;
     }
 
-    public void setStoreId(Long storeId) {
-        this.storeId = storeId;
+    public void setShopId(Long shopId) {
+        this.shopId = shopId;
     }
 
     public Long getSpecDetailId() {

@@ -80,6 +80,7 @@ public class AbstractHibernateDao<T extends EntityClass>{
         try{
             tx = session.beginTransaction();
             session.persist(t);
+            tx.commit();
         }
         catch (Exception e){
             if (tx != null) {
@@ -101,6 +102,7 @@ public class AbstractHibernateDao<T extends EntityClass>{
         try{
             tx = session.beginTransaction();
             session.merge(t);
+            tx.commit();
             return t;
         }
         catch(Exception e){
@@ -128,6 +130,7 @@ public class AbstractHibernateDao<T extends EntityClass>{
             }
             t.setStatus(deleteCode);
             session.merge(t);
+            tx.commit();
             return true;
         }        
         catch(Exception e){
@@ -141,7 +144,4 @@ public class AbstractHibernateDao<T extends EntityClass>{
         return false;
 
     }
-
-
-
 }

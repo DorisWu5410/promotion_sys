@@ -20,7 +20,6 @@ public class PromoProduct extends EntityClass implements Serializable{
     private Long id;
 
     // promo id
-    @ManyToOne
     private Long promoId;
 
     // promo name
@@ -29,7 +28,20 @@ public class PromoProduct extends EntityClass implements Serializable{
     //stock keeping unit
     private Long skuId;
     
-    // selling price per unit
+    // product Id
+    private Long spuId;
+
+    // stock
+    private Integer promoStock;
+
+    // price for promotion
+    private Integer promoPrice;
+
+    // createTime
+    private Date createTime;
+
+    // update
+    private Date updateTime;
 
     public Long getId() {
         return this.id;
@@ -102,17 +114,5 @@ public class PromoProduct extends EntityClass implements Serializable{
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-    private Long spuId;
 
-    // stock
-    private Integer promoStock;
-
-    // price for promotion
-    private Integer promoPrice;
-
-    // createTime
-    private Date createTime;
-
-    // update
-    private Date updateTime;
 }
