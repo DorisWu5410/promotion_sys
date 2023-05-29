@@ -116,6 +116,67 @@ public class AbstractHibernateDao<T extends EntityClass>{
         return null;
     }
 
+    public int insertOrUpdateBatch(List<T> ts){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            int count = 0;
+            for(T t : ts){
+                session.merge(t);
+                count++;
+
+                if(count % 50 == 0){
+                    //flush a batch of inserts and release memory:
+                    session.flush();;
+                    session.clear();
+                }
+            }
+            tx.commit();
+        }
+        catch(Exception e){
+            if(tx != null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally{
+            session.close();
+        }
+        return ts.size();
+    }
+
+    public int insertBatch(List<T> ts){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            int count = 0;
+            for(T t : ts){
+                session.persist(t);
+                count++;
+
+                if(count % 50 == 0){
+                    //flush a batch of inserts and release memory:
+                    session.flush();;
+                    session.clear();
+                }
+            }
+            tx.commit();
+        }
+        catch(Exception e){
+            if(tx != null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+        }
+        finally{
+            session.close();
+        }
+        return ts.size();
+    }
+    
+
     public boolean deleteById(Long id, int deleteCode){
         if(id == null){
             return false;

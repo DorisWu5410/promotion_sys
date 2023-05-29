@@ -19,6 +19,8 @@ public class PromoProductModel implements Serializable {
     private static final long serialVersionUID = -81907624022631674L;
     
     // id
+    private Long  id;
+
     private Long promoId;
 
     private String promoName;

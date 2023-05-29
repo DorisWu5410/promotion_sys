@@ -8,6 +8,7 @@ import com.example.promotion.promo.model.PromoProductModel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -25,6 +26,7 @@ public class Promo extends EntityClass implements Serializable, Converter<Promo,
 
     // id
     @Id
+    @GeneratedValue
     private Long id;
     
     // promotion name

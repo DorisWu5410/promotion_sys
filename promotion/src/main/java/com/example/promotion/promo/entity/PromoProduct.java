@@ -6,7 +6,7 @@ import java.util.*;
 import com.example.promotion.EntityClass;
 
 import jakarta.persistence.Entity;
-
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -17,6 +17,7 @@ public class PromoProduct extends EntityClass implements Serializable{
     private static final long serialVersionUID = -72847303198394301L;
     // id
     @Id
+    @GeneratedValue
     private Long id;
 
     // promo id
